@@ -55,7 +55,7 @@ export const NavigationMenuItem = ({
 };
 
 const navigationMenuTriggerStyle = cva(
-    "focus-shadow group inset-ring-wood-500/80 hover:bg-wood-200/7 focus:bg-wood-200/7 data-[state=open]:bg-wood-200/7 data-[state=open]:hover:bg-wood-200/7 data-[state=open]:focus:bg-wood-200/7 inline-flex h-10 w-max items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-[color,box-shadow] outline-none hover:text-neutral-50 focus:text-neutral-50 focus-visible:inset-ring-2 focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-neutral-50",
+    "focus-shadow group inset-ring-wood-500/80 hover:bg-wood-300/15 focus:bg-wood-300/15 data-[state=open]:bg-wood-300/15 data-[state=open]:hover:bg-wood-300/15 data-[state=open]:focus:bg-wood-300/15 inline-flex h-10 w-max items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-[color,box-shadow] outline-none hover:text-neutral-50 focus:text-neutral-50 focus-visible:inset-ring-2 focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-neutral-50",
 );
 
 interface NavigationMenuTriggerProps extends React.ComponentProps<typeof NavigationMenuPrimitive.Trigger> {
@@ -93,7 +93,7 @@ export const NavigationMenuContent = ({ className, align = "center", ...props }:
         <NavigationMenuPrimitive.Content
             data-slot="navigation-menu-content"
             className={cn(
-                "mt-4 border border-neutral-200 bg-white shadow-md dark:border-neutral-800 dark:bg-black",
+                "border-wood-500/30 mt-4 border bg-black shadow-md",
                 "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 absolute top-0 w-auto p-2",
                 "group-data-[viewport=false]/navigation-menu:bg-popover group-data-[viewport=false]/navigation-menu:text-popover-foreground group-data-[viewport=false]/navigation-menu:data-[state=open]:animate-in group-data-[viewport=false]/navigation-menu:data-[state=closed]:animate-out group-data-[viewport=false]/navigation-menu:data-[state=closed]:zoom-out-95 group-data-[viewport=false]/navigation-menu:data-[state=open]:zoom-in-95 group-data-[viewport=false]/navigation-menu:data-[state=open]:fade-in-0 group-data-[viewport=false]/navigation-menu:data-[state=closed]:fade-out-0 group-data-[viewport=false]/navigation-menu:top-full group-data-[viewport=false]/navigation-menu:mt-1.5 group-data-[viewport=false]/navigation-menu:overflow-hidden group-data-[viewport=false]/navigation-menu:rounded-3xl group-data-[viewport=false]/navigation-menu:border group-data-[viewport=false]/navigation-menu:shadow group-data-[viewport=false]/navigation-menu:duration-200 **:data-[slot=navigation-menu-link]:focus:ring-0 **:data-[slot=navigation-menu-link]:focus:outline-none",
                 align === "start" && "left-0",
@@ -132,7 +132,7 @@ export const NavigationMenuLink = ({
         <NavigationMenuPrimitive.Link
             data-slot="navigation-menu-link"
             className={cn(
-                "inset-ring-wood-500/80 hover:bg-wood-200/7 focus:bg-wood-200/7 data-[active=true]:bg-wood-200/7 data-[active=true]:hover:bg-wood-200/7 data-[active=true]:focus:bg-wood-200/7 flex flex-col gap-1 rounded-lg p-2 text-sm font-semibold transition-all outline-none hover:text-neutral-50 focus:text-neutral-50 focus-visible:inset-ring-2 focus-visible:outline-0 data-[active=true]:text-neutral-50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-neutral-400",
+                "inset-ring-wood-500/80 hover:bg-wood-300/15 focus:bg-wood-300/15 data-[active=true]:bg-wood-300/15 data-[active=true]:hover:bg-wood-300/15 data-[active=true]:focus:bg-wood-300/15 flex flex-col gap-1 rounded-lg p-2 text-sm font-semibold transition-all outline-none hover:text-neutral-50 focus:text-neutral-50 focus-visible:inset-ring-2 focus-visible:outline-0 data-[active=true]:text-neutral-50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-neutral-400",
                 className,
             )}
             {...props}
@@ -153,7 +153,7 @@ export const NavigationMenuIndicator = ({
             )}
             {...props}
         >
-            <div className="bg-wood-200/7 relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md" />
+            <div className="bg-wood-300/15 relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md" />
         </NavigationMenuPrimitive.Indicator>
     );
 };

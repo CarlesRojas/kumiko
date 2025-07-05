@@ -8,7 +8,7 @@ export const Avatar = ({ className, ref, ...props }: ComponentProps<typeof Avata
     <AvatarPrimitive.Root
         ref={ref}
         className={cn(
-            "relative flex size-10 max-h-10 min-h-10 max-w-10 min-w-10 shrink-0 overflow-hidden rounded-full",
+            "group-focus-visible:shadow-[0_0_0_2px_theme(colors.wood.500)] relative flex size-10 max-h-10 min-h-10 max-w-10 min-w-10 shrink-0 overflow-hidden rounded-full",
             className,
         )}
         {...props}

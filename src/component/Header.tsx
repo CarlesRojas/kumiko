@@ -16,7 +16,7 @@ import { getTranslation } from "@/locale/getTranslation";
 import { Language } from "@/locale/language";
 import { QueryKey } from "@/type/QueryKey";
 import { QueryClient } from "@tanstack/react-query";
-import { useRouter } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import type { User } from "better-auth";
 import { LogOut, UserRound } from "lucide-react";
 
@@ -42,107 +42,17 @@ const Header = ({ user, language, queryClient }: Props) => {
 
     return (
         <header className="sticky top-0 left-0 z-30 flex h-18 max-h-18 min-h-18 w-full items-center justify-between bg-gradient-to-b from-neutral-950/75 to-neutral-950/0 px-4 backdrop-blur-sm">
-            <div className="flex items-center gap-4">
-                <img src="/favicon_512.png" alt="logo" className="h-10" />
+            <Link to="/$language" params={{ language }} className="group flex cursor-pointer items-center gap-4">
+                <img
+                    src="/favicon_512.png"
+                    alt="logo"
+                    className="h-10 transition-transform group-hover:rotate-90 group-focus-visible:rotate-90"
+                />
 
-                <h1 className="text-2xl font-semibold">{t.meta.appName}</h1>
-            </div>
-            {/* 
-            <nav className="flex w-fit items-center gap-4 lg:gap-8">
-                <NavigationMenu>
-                    <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger aria-label={t.header.language}>
-                                <Languages className="size-4" />
-                            </NavigationMenuTrigger>
-
-                            <NavigationMenuContent>
-                                <ul className="flex w-fit min-w-[8rem] flex-col">
-                                    {Object.values(Language).map((item) => (
-                                        <NavigationMenuLink asChild>
-                                            <Link
-                                                to={`/${item}${pathWithoutLanguage}` as any}
-                                                key={item}
-                                                preload={false}
-                                                className={cn(item === language && "!text-wood-500")}
-                                                onClick={() => setLanguage({ data: item })}
-                                            >
-                                                {t.enum.language[item]}
-                                            </Link>
-                                        </NavigationMenuLink>
-                                    ))}
-                                </ul>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu>
-
-                
-
-                {!!user && (
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button
-                                variant="ghost"
-                                size="fit"
-                                className="ring-wood-500/80 rounded-full border border-neutral-700 bg-neutral-800 !inset-ring-0 ring-offset-2 ring-offset-neutral-900 focus-visible:ring-2"
-                                aria-label={user.name ?? t.header.username}
-                            >
-                                <Avatar>
-                                    <AvatarImage src={user.image ?? undefined} alt={user.name ?? t.header.username} />
-                                    <AvatarFallback>
-                                        {user.name?.slice(0, 1) ?? <UserRound className="size-5" />}
-                                    </AvatarFallback>
-                                </Avatar>
-                            </Button>
-                        </DropdownMenuTrigger>
-
-                        <DropdownMenuContent className="w-(--radix-popper-anchor-width)" align="end" sideOffset={22}>
-                            <DropdownMenuLabel>
-                                {user.name
-                                    ? `${t.header.hi} ${user.name.split(" ").slice(0, 2).join(" ")}!`
-                                    : `${t.header.hi}!`}
-                            </DropdownMenuLabel>
-
-                            <DropdownMenuSeparator />
-
-                            <DropdownMenuSub>
-                                <DropdownMenuSubTrigger className="flex items-center gap-2">
-                                    <Languages className="size-4" />
-                                    {t.header.language}
-                                </DropdownMenuSubTrigger>
-
-                                <DropdownMenuPortal>
-                                    <DropdownMenuSubContent sideOffset={14}>
-                                        {Object.values(Language).map((item) => (
-                                            <Link
-                                                to={`/${item}${pathWithoutLanguage}` as any}
-                                                key={item}
-                                                preload={false}
-                                                onClick={() => setLanguage({ data: item })}
-                                            >
-                                                <DropdownMenuItem
-                                                    className={cn(
-                                                        "font-semibold",
-                                                        item === language && "!text-wood-500",
-                                                    )}
-                                                >
-                                                    {t.enum.language[item]}
-                                                </DropdownMenuItem>
-                                            </Link>
-                                        ))}
-                                    </DropdownMenuSubContent>
-                                </DropdownMenuPortal>
-                            </DropdownMenuSub>
-
-                            <DropdownMenuItem onClick={logout} className="flex items-center gap-2 !text-red-400">
-                                <LogOut className="size-4" />
-                                {t.header.logout}
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                )}
-            </nav> */}
+                <h1 className="group-hover:text-wood-300 group-focus-visible:text-wood-300 text-2xl font-semibold transition-colors">
+                    {t.meta.appName}
+                </h1>
+            </Link>
 
             <div className="flex items-center gap-2">
                 <NavigationMenu viewport={false}>
@@ -160,11 +70,11 @@ const Header = ({ user, language, queryClient }: Props) => {
                                 <Button
                                     variant="ghost"
                                     size="fit"
-                                    className="ml-2 size-10 rounded-full border border-neutral-200 bg-white p-0 dark:border-neutral-700 dark:bg-neutral-800"
+                                    className="ml-2 size-10 rounded-full border border-neutral-200 bg-white p-0 !opacity-100"
                                     aria-label={user.name}
                                     asChild
                                 >
-                                    <NavigationMenuTrigger hideChevron>
+                                    <NavigationMenuTrigger hideChevron className="group">
                                         <Avatar>
                                             <AvatarImage src={user.image ?? undefined} alt={user.name} />
                                             <AvatarFallback>
@@ -175,20 +85,20 @@ const Header = ({ user, language, queryClient }: Props) => {
                                 </Button>
 
                                 <NavigationMenuContent align="end">
-                                    <ul className="flex w-full min-w-[6rem] flex-col">
+                                    <ul className="flex w-full min-w-[8rem] flex-col">
                                         <span className="px-4 py-2 whitespace-nowrap">
                                             {user.name
                                                 ? `${t.header.hi} ${user.name.split(" ")[0]}!`
                                                 : `${t.header.hi}!`}
                                         </span>
 
-                                        <div className="my-2 h-[1px] w-full rounded-full bg-neutral-200 dark:bg-neutral-800" />
+                                        <div className="bg-wood-500/30 my-2 h-[1px] w-full rounded-full" />
 
                                         <NavigationMenuLink
                                             onClick={logout}
                                             className="flex flex-row items-center gap-2 whitespace-nowrap !text-red-400"
                                         >
-                                            <LogOut className="size-4" />
+                                            <LogOut className="size-4 !text-red-400" />
                                             {t.header.logout}
                                         </NavigationMenuLink>
                                     </ul>
