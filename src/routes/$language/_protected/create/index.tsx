@@ -1,17 +1,30 @@
-import { getTranslation } from "@/locale/getTranslation";
+import { cn } from "@/lib/cn";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/$language/_protected/create/")({ component: LoggedInHome });
 
-function LoggedInHome() {
-    const { language } = Route.useRouteContext();
-    const t = getTranslation(language);
+const rows = 10;
+const cols = 10;
 
+function LoggedInHome() {
     return (
-        <div className="mx-auto flex max-w-5xl flex-col gap-16">
-            <h1 className="bg-wood-400 from-wood-400 to-wood-500 bg-gradient-to-r bg-clip-text py-2 text-center text-3xl leading-tight font-bold text-pretty text-transparent md:text-5xl lg:text-6xl">
-                {t.landing.h1}
-            </h1>
+        <div className="relative h-full w-full">
+            <div className="grid w-fit grid-cols-10">
+                {[...Array(rows)].map((_, row) =>
+                    [...Array(cols)].map((_, col) => (
+                        <div
+                            key={`${row}-${col}`}
+                            className={cn(
+                                "bg-wood-400 -mt-[5rem] h-[10rem] w-[8.66rem] scale-[0.85] hover:opacity-80",
+                                row === 0 && "mt-0",
+                                (row + col) % 2 === 0
+                                    ? "triangle-left origin-[66.5%_50%]"
+                                    : "triangle-right origin-[33.4%_50%]",
+                            )}
+                        />
+                    )),
+                )}
+            </div>
         </div>
     );
 }
