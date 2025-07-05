@@ -16,6 +16,8 @@ import { Route as LanguagePublicRouteRouteImport } from './routes/$language/_pub
 import { Route as LanguageProtectedRouteRouteImport } from './routes/$language/_protected/route'
 import { Route as LanguagePublicIndexRouteImport } from './routes/$language/_public/index'
 import { Route as LanguageProtectedCreateIndexRouteImport } from './routes/$language/_protected/create/index'
+import { Route as LanguagePublicLegalTermsAndConditionsIndexRouteImport } from './routes/$language/_public/legal/terms-and-conditions/index'
+import { Route as LanguagePublicLegalPrivacyPolicyIndexRouteImport } from './routes/$language/_public/legal/privacy-policy/index'
 import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth/$'
 
 const LanguageRouteImport = createFileRoute('/$language')()
@@ -45,6 +47,18 @@ const LanguageProtectedCreateIndexRoute =
     path: '/create/',
     getParentRoute: () => LanguageProtectedRouteRoute,
   } as any)
+const LanguagePublicLegalTermsAndConditionsIndexRoute =
+  LanguagePublicLegalTermsAndConditionsIndexRouteImport.update({
+    id: '/legal/terms-and-conditions/',
+    path: '/legal/terms-and-conditions/',
+    getParentRoute: () => LanguagePublicRouteRoute,
+  } as any)
+const LanguagePublicLegalPrivacyPolicyIndexRoute =
+  LanguagePublicLegalPrivacyPolicyIndexRouteImport.update({
+    id: '/legal/privacy-policy/',
+    path: '/legal/privacy-policy/',
+    getParentRoute: () => LanguagePublicRouteRoute,
+  } as any)
 const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -55,10 +69,14 @@ export interface FileRoutesByFullPath {
   '/$language': typeof LanguagePublicRouteRouteWithChildren
   '/$language/': typeof LanguagePublicIndexRoute
   '/$language/create': typeof LanguageProtectedCreateIndexRoute
+  '/$language/legal/privacy-policy': typeof LanguagePublicLegalPrivacyPolicyIndexRoute
+  '/$language/legal/terms-and-conditions': typeof LanguagePublicLegalTermsAndConditionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/$language': typeof LanguagePublicIndexRoute
   '/$language/create': typeof LanguageProtectedCreateIndexRoute
+  '/$language/legal/privacy-policy': typeof LanguagePublicLegalPrivacyPolicyIndexRoute
+  '/$language/legal/terms-and-conditions': typeof LanguagePublicLegalTermsAndConditionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -67,12 +85,23 @@ export interface FileRoutesById {
   '/$language/_public': typeof LanguagePublicRouteRouteWithChildren
   '/$language/_public/': typeof LanguagePublicIndexRoute
   '/$language/_protected/create/': typeof LanguageProtectedCreateIndexRoute
+  '/$language/_public/legal/privacy-policy/': typeof LanguagePublicLegalPrivacyPolicyIndexRoute
+  '/$language/_public/legal/terms-and-conditions/': typeof LanguagePublicLegalTermsAndConditionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/$language' | '/$language/' | '/$language/create'
+  fullPaths:
+    | '/$language'
+    | '/$language/'
+    | '/$language/create'
+    | '/$language/legal/privacy-policy'
+    | '/$language/legal/terms-and-conditions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/$language' | '/$language/create'
+  to:
+    | '/$language'
+    | '/$language/create'
+    | '/$language/legal/privacy-policy'
+    | '/$language/legal/terms-and-conditions'
   id:
     | '__root__'
     | '/$language'
@@ -80,6 +109,8 @@ export interface FileRouteTypes {
     | '/$language/_public'
     | '/$language/_public/'
     | '/$language/_protected/create/'
+    | '/$language/_public/legal/privacy-policy/'
+    | '/$language/_public/legal/terms-and-conditions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -144,6 +175,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LanguageProtectedCreateIndexRouteImport
       parentRoute: typeof LanguageProtectedRouteRoute
     }
+    '/$language/_public/legal/terms-and-conditions/': {
+      id: '/$language/_public/legal/terms-and-conditions/'
+      path: '/legal/terms-and-conditions'
+      fullPath: '/$language/legal/terms-and-conditions'
+      preLoaderRoute: typeof LanguagePublicLegalTermsAndConditionsIndexRouteImport
+      parentRoute: typeof LanguagePublicRouteRoute
+    }
+    '/$language/_public/legal/privacy-policy/': {
+      id: '/$language/_public/legal/privacy-policy/'
+      path: '/legal/privacy-policy'
+      fullPath: '/$language/legal/privacy-policy'
+      preLoaderRoute: typeof LanguagePublicLegalPrivacyPolicyIndexRouteImport
+      parentRoute: typeof LanguagePublicRouteRoute
+    }
   }
 }
 declare module '@tanstack/react-start/server' {
@@ -174,10 +219,16 @@ const LanguageProtectedRouteRouteWithChildren =
 
 interface LanguagePublicRouteRouteChildren {
   LanguagePublicIndexRoute: typeof LanguagePublicIndexRoute
+  LanguagePublicLegalPrivacyPolicyIndexRoute: typeof LanguagePublicLegalPrivacyPolicyIndexRoute
+  LanguagePublicLegalTermsAndConditionsIndexRoute: typeof LanguagePublicLegalTermsAndConditionsIndexRoute
 }
 
 const LanguagePublicRouteRouteChildren: LanguagePublicRouteRouteChildren = {
   LanguagePublicIndexRoute: LanguagePublicIndexRoute,
+  LanguagePublicLegalPrivacyPolicyIndexRoute:
+    LanguagePublicLegalPrivacyPolicyIndexRoute,
+  LanguagePublicLegalTermsAndConditionsIndexRoute:
+    LanguagePublicLegalTermsAndConditionsIndexRoute,
 }
 
 const LanguagePublicRouteRouteWithChildren =
