@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+    "id": "ailog",
+    "dir": "ltr",
+    "lang": "en",
+    "name": "Kumiko",
+    "orientation": "portrait",
+    "short_name": "Kumiko",
+    "description": "Create stunning Kumiko designs with ease",
+    "theme_color": "#0f0904",
+    "background_color": "#0f0904",
+    "display": "standalone",
+    "start_url": ".",
+    "scope": ".",
+    "categories": ["lifestyle", "productivity", "utilities"],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "logo_192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "logo_512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

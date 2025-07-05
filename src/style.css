@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@theme {
+    --font-code: "Source Code Pro", monospace;
+    --font-sora: "Sora", sans-serif;
+
+    --color-wood-50: #fcf8f0;
+    --color-wood-100: #f8efdc;
+    --color-wood-200: #efdcb9;
+    --color-wood-300: #e5c28c;
+    --color-wood-400: #deae72;
+    --color-wood-500: #d1893e;
+    --color-wood-600: #c37333;
+    --color-wood-700: #a25a2c;
+    --color-wood-800: #82492a;
+    --color-wood-900: #693d25;
+    --color-wood-950: #381e12;
+    --color-wood-1000: #0f0904;
+}
+
+@layer base {
+    * {
+        @apply m-0 box-border p-0 !outline-none;
+    }
+
+    html,
+    body {
+        font-family: var(--font-sora);
+    }
+
+    code,
+    pre {
+        font-family: var(--font-code);
+    }
+
+    img,
+    video,
+    svg {
+        @apply block;
+    }
+
+    a {
+        @apply no-underline;
+    }
+}
