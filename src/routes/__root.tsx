@@ -1,3 +1,4 @@
+import Footer from "@/component/Footer";
 import Header from "@/component/Header";
 import type { Context } from "@/lib/context";
 import { seo } from "@/lib/seo";
@@ -56,10 +57,14 @@ const RootDocument = ({ children }: { children: React.ReactNode }) => {
                 <HeadContent />
             </head>
 
-            <body className="font-sora text-wood-50 selection:bg-wood-500/40 bg-wood-1000 relative h-full w-full antialiased">
+            <body className="font-sora text-wood-50 selection:bg-wood-500/40 bg-wood-1000 relative h-full w-full overflow-y-auto antialiased">
                 <Header user={user} language={language} queryClient={queryClient} />
 
-                {children}
+                <main className="h-[calc(100dvh-4.5rem)] max-h-[calc(100dvh-4.5rem)] min-h-[calc(100dvh-4.5rem)]">
+                    {children}
+                </main>
+
+                <Footer language={language} />
 
                 <Scripts />
             </body>

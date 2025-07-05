@@ -59,6 +59,12 @@ export const LanguageObjectSchema = z.object({
         }),
     }),
 
+    footer: z.object({
+        privacyPolicy: z.string(),
+        termsAndConditions: z.string(),
+        copyright: z.string(),
+    }),
+
     enum: z.object({
         language: z.object(Object.fromEntries(Object.values(Language).map((item) => [item, z.string()]))),
     }),

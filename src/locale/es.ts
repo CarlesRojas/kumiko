@@ -50,6 +50,12 @@ export const es: LanguageObject = {
         },
     },
 
+    footer: {
+        privacyPolicy: "Política de privacidad",
+        termsAndConditions: "Términos y condiciones",
+        copyright: "Derechos de autor © 2025 Kumiko Create",
+    },
+
     enum: {
         language: {
             en: "English",
