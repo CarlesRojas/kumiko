@@ -50,6 +50,22 @@
     clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
 }
 
+.triangle-left-first {
+    clip-path: polygon(0% 50%, 100% 50%, 100% 100%);
+}
+
+.triangle-left-last {
+    clip-path: polygon(0% 50%, 100% 0%, 100% 50%);
+}
+
 .triangle-right {
     clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+}
+
+.triangle-right-first {
+    clip-path: polygon(0% 50%, 0% 100%, 100% 50%);
+}
+
+.triangle-right-last {
+    clip-path: polygon(0% 0%, 0% 50%, 100% 50%);
 }
