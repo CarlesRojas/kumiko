@@ -36,8 +36,8 @@ const Header = ({ user, language, queryClient }: Props) => {
         await router.invalidate();
     };
 
-    const login = () => {
-        authClient.signIn.social({ provider: "google", callbackURL: `/${language}/create` });
+    const login = async () => {
+        await authClient.signIn.social({ provider: "google", callbackURL: `/${language}/create` });
     };
 
     return (
@@ -95,11 +95,13 @@ const Header = ({ user, language, queryClient }: Props) => {
                                         <div className="bg-wood-500/30 my-2 h-[1px] w-full rounded-full" />
 
                                         <NavigationMenuLink
-                                            onClick={logout}
                                             className="flex flex-row items-center gap-2 whitespace-nowrap !text-red-400"
+                                            asChild
                                         >
-                                            <LogOut className="size-4 !text-red-400" />
-                                            {t.header.logout}
+                                            <button onClick={logout}>
+                                                <LogOut className="size-4 !text-red-400" />
+                                                {t.header.logout}
+                                            </button>
                                         </NavigationMenuLink>
                                     </ul>
                                 </NavigationMenuContent>

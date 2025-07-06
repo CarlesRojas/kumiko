@@ -1,3 +1,5 @@
+import { DefaultCatchBoundary } from "@/component/error/DefaultCatchBoundary";
+import { NotFound } from "@/component/error/NotFound";
 import * as Provider from "@/lib/context";
 import { routeTree } from "@/routeTree.gen";
 import "@/style.css";
@@ -21,6 +23,9 @@ export const createRouter = () => {
             scrollRestoration: true,
             defaultPreloadStaleTime: 0,
             defaultPreload: "intent",
+            defaultStructuralSharing: true,
+            defaultErrorComponent: DefaultCatchBoundary,
+            defaultNotFoundComponent: NotFound,
         }),
         Provider.getContext().queryClient,
     );
