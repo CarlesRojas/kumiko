@@ -12,7 +12,7 @@ export const Route = createRootRouteWithContext<Context>()({
     head: () => ({
         meta: [
             { charSet: "utf-8" },
-            { name: "viewport", content: "width=device-width, initial-scale=1" },
+            { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" },
             { name: "theme-color", content: "#0f0904" },
             ...seo({ title: "Kumiko", description: `Create stunning Kumiko designs with ease` }),
         ],
@@ -52,16 +52,20 @@ const RootDocument = ({ children }: { children: React.ReactNode }) => {
     const { language, queryClient, user } = Route.useRouteContext();
 
     return (
-        <html className="h-dvh max-h-dvh min-h-dvh w-dvw max-w-dvw min-w-dvw" lang={language} suppressHydrationWarning>
+        <html
+            className="h-dvh max-h-dvh min-h-dvh w-dvw max-w-dvw min-w-dvw touch-none"
+            lang={language}
+            suppressHydrationWarning
+        >
             <head>
                 <HeadContent />
             </head>
 
-            <body className="font-sora text-wood-50 selection:bg-wood-500/40 bg-wood-1000 relative h-full w-full overflow-y-auto antialiased">
+            <body className="font-sora text-wood-50 selection:bg-wood-500/40 bg-wood-1000 relative h-full w-full overflow-hidden antialiased">
                 <Header user={user} language={language} queryClient={queryClient} />
 
-                <main className="h-[calc(100dvh-4.5rem)] max-h-[calc(100dvh-4.5rem)] min-h-[calc(100dvh-4.5rem)]">
-                    {children}
+                <main className="h-[calc(100dvh-5.5rem)] max-h-[calc(100dvh-5.5rem)] min-h-[calc(100dvh-5.5rem)] px-2">
+                    <div className="bg-wood-950/50 border-wood-900/70 size-full rounded-2xl border">{children}</div>
                 </main>
 
                 <Footer language={language} />

@@ -13,22 +13,18 @@ const Footer = ({ language }: Props) => {
     const t = getTranslation(language);
 
     return (
-        <footer className="relative flex w-full flex-col items-center justify-center gap-4 p-4">
-            <div className="flex flex-row justify-center gap-8">
-                <Button variant="ghost" size="fit" asChild>
-                    <Link to="/$language/legal/privacy-policy" params={{ language }}>
-                        {t.footer.privacyPolicy}
-                    </Link>
-                </Button>
+        <footer className="relative flex h-6 max-h-6 min-h-6 w-full items-center justify-center gap-6 px-2 sm:justify-end">
+            <Button variant="ghost" size="fit" asChild className="text-xs opacity-50">
+                <Link to="/$language/legal/privacy-policy" params={{ language }}>
+                    {t.footer.privacyPolicy}
+                </Link>
+            </Button>
 
-                <Button variant="ghost" size="fit" asChild>
-                    <Link to="/$language/legal/terms-and-conditions" params={{ language }}>
-                        {t.footer.termsAndConditions}
-                    </Link>
-                </Button>
-            </div>
-
-            <p className="text-sm text-neutral-500">{t.footer.copyright}</p>
+            <Button variant="ghost" size="fit" asChild className="text-xs opacity-50">
+                <Link to="/$language/legal/terms-and-conditions" params={{ language }}>
+                    {t.footer.termsAndConditions}
+                </Link>
+            </Button>
         </footer>
     );
 };

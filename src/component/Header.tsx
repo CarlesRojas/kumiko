@@ -41,15 +41,15 @@ const Header = ({ user, language, queryClient }: Props) => {
     };
 
     return (
-        <header className="sticky top-0 left-0 z-30 flex h-18 max-h-18 min-h-18 w-full items-center justify-between bg-gradient-to-b from-neutral-950/75 to-neutral-950/0 px-4 backdrop-blur-sm">
+        <header className="sticky top-0 left-0 z-30 flex h-16 max-h-16 min-h-16 w-full items-center justify-between bg-gradient-to-b from-neutral-950/75 to-neutral-950/0 px-4 backdrop-blur-sm">
             <Link to="/$language" params={{ language }} className="group flex cursor-pointer items-center gap-4">
                 <img
                     src="/favicon_512.png"
                     alt="logo"
-                    className="h-10 transition-transform group-hover:rotate-90 group-focus-visible:rotate-90"
+                    className="h-9 transition-transform group-hover:rotate-90 group-focus-visible:rotate-90"
                 />
 
-                <h1 className="group-hover:text-wood-300 group-focus-visible:text-wood-300 text-2xl font-semibold transition-colors">
+                <h1 className="group-hover:text-wood-300 group-focus-visible:text-wood-300 font-semibold transition-colors sm:text-lg">
                     {t.meta.appName}
                 </h1>
             </Link>
