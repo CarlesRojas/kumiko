@@ -6,8 +6,8 @@ export const Route = createFileRoute("/$language/_public/legal/privacy-policy/")
 
 function PrivacyPolicy() {
     return (
-        <div className="relative flex w-full justify-center overflow-y-auto p-4">
-            <div className="prose prose-neutral prose-invert max-w-screen-lg pb-20">
+        <div className="relative flex size-full justify-center overflow-y-auto p-4">
+            <div className="prose prose-neutral prose-invert h-fit max-w-screen-lg pb-10">
                 <h1>Privacy Policy</h1>
                 <p>Last updated: December 1, 2024</p>
                 <p>

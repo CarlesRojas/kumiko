@@ -6,8 +6,8 @@ export const Route = createFileRoute("/$language/_public/legal/terms-and-conditi
 
 function TermsAndConditions() {
     return (
-        <div className="relative flex w-full justify-center overflow-y-auto p-4">
-            <div className="prose prose-neutral prose-invert max-w-screen-lg pb-20">
+        <div className="relative flex size-full justify-center overflow-y-auto p-4">
+            <div className="prose prose-neutral prose-invert h-fit max-w-screen-lg pb-10">
                 <h1>Terms &amp; Conditions</h1>
                 <p>
                     These terms and conditions applies to the Kumiko Create app (hereby referred to as
