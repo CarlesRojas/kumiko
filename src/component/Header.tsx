@@ -70,7 +70,7 @@ const Header = ({ user, language, queryClient }: Props) => {
                                 <Button
                                     variant="ghost"
                                     size="fit"
-                                    className="ml-2 size-10 rounded-full border border-neutral-200 bg-white p-0 !opacity-100"
+                                    className="bg-wood-950 border-wood-900 ml-2 size-10 rounded-full border p-0 !opacity-100"
                                     aria-label={user.name}
                                     asChild
                                 >

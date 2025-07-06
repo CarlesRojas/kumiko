@@ -28,7 +28,7 @@ const LanguageDropdown = ({ language }: Readonly<Props>) => {
             </NavigationMenuTrigger>
 
             <NavigationMenuContent>
-                <ul className="flex w-full min-w-[6rem] flex-col">
+                <ul className="flex w-full min-w-[8rem] flex-col">
                     {Object.values(Language).map((item) => (
                         <NavigationMenuLink asChild key={item}>
                             <Link

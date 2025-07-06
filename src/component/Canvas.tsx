@@ -27,8 +27,8 @@ const Canvas = () => {
                 minScale={0.01}
                 maxScale={10}
                 doubleClick={{ disabled: true }}
-                zoomAnimation={{ animationTime: 100 }}
-                alignmentAnimation={{ animationTime: 100 }}
+                zoomAnimation={{ animationTime: 200 }}
+                alignmentAnimation={{ animationTime: 200 }}
             >
                 <TransformComponent wrapperClass="relative !h-full !w-full ">
                     <div
@@ -41,7 +41,7 @@ const Canvas = () => {
                                 <div
                                     key={`${row}-${col}`}
                                     className={cn(
-                                        "bg-wood-200 -mt-[50px] h-[100px] w-[86.6px] scale-[0.89] hover:opacity-80",
+                                        "bg-wood-300 -mt-[50px] h-[100px] w-[86.6px] scale-[0.89] hover:opacity-80",
                                         row === 0 && "mt-0",
                                         (row + col) % 2 === 0
                                             ? "triangle-left origin-[66.5%_50%]"
