@@ -50,7 +50,6 @@ export const Route = createRootRouteWithContext<Context>()({
 
 const RootDocument = ({ children }: { children: React.ReactNode }) => {
     const { language, queryClient, user } = Route.useRouteContext();
-    console.log(user);
 
     return (
         <html className="h-dvh max-h-dvh min-h-dvh w-dvw max-w-dvw min-w-dvw" lang={language} suppressHydrationWarning>

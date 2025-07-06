@@ -15,12 +15,16 @@
         "noEmit": true,
 
         /* Linting */
+        "esModuleInterop": true,
         "skipLibCheck": true,
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "resolveJsonModule": true,
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"]
