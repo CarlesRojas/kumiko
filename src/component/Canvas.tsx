@@ -29,6 +29,8 @@ const Canvas = () => {
                 doubleClick={{ disabled: true }}
                 zoomAnimation={{ animationTime: 200 }}
                 alignmentAnimation={{ animationTime: 200 }}
+                limitToBounds={false}
+                centerZoomedOut={false}
             >
                 <TransformComponent wrapperClass="relative !h-full !w-full ">
                     <div
