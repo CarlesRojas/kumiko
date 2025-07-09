@@ -1,5 +1,7 @@
+import { CanvasSidebar } from "@/component/CanvasSidebar";
 import Footer from "@/component/Footer";
 import Header from "@/component/Header";
+import { SidebarProvider } from "@/component/ui/sidebar";
 import type { Context } from "@/lib/context";
 import { seo } from "@/lib/seo";
 import { getUser } from "@/server/repo/auth";
@@ -7,6 +9,7 @@ import { getLanguage, getLanguageFromPathname } from "@/server/repo/language";
 import appCss from "@/style.css?url";
 import { QueryKey } from "@/type/QueryKey";
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext, redirect } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 
 export const Route = createRootRouteWithContext<Context>()({
     head: () => ({
@@ -50,7 +53,7 @@ export const Route = createRootRouteWithContext<Context>()({
     ),
 });
 
-const RootDocument = ({ children }: { children: React.ReactNode }) => {
+const RootDocument = ({ children }: { children: ReactNode }) => {
     const { language, queryClient, user } = Route.useRouteContext();
 
     return (
@@ -63,16 +66,22 @@ const RootDocument = ({ children }: { children: React.ReactNode }) => {
                 <HeadContent />
             </head>
 
-            <body className="font-sora text-wood-50 selection:bg-wood-500/40 bg-wood-1000 relative h-full w-full overflow-hidden antialiased">
+            <body className="font-sora text-wood-50 selection:bg-wood-500/40 bg-wood-1000 relative size-full overflow-hidden antialiased">
                 <Header user={user} language={language} queryClient={queryClient} />
 
-                <main className="h-[calc(100dvh-5.5rem)] max-h-[calc(100dvh-5.5rem)] min-h-[calc(100dvh-5.5rem)] px-2">
-                    <div className="bg-wood-950/50 border-wood-900/70 size-full rounded-2xl border">{children}</div>
-                </main>
+                <SidebarProvider defaultOpen={true}>
+                    <CanvasSidebar language={language} />
+
+                    <div className="relative h-[calc(100dvh-5.5rem)] max-h-[calc(100dvh-5.5rem)] min-h-[calc(100dvh-5.5rem)] w-full px-2 md:group-data-[state=collapsed]/sidebar-wrapper:!pl-0">
+                        {/* <SidebarInset className="size-full"> */}
+                        <div className="bg-wood-950/50 border-wood-900/70 size-full rounded-2xl border">{children}</div>
+                        {/* </SidebarInset> */}
+                    </div>
+
+                    <Scripts />
+                </SidebarProvider>
 
                 <Footer language={language} />
-
-                <Scripts />
             </body>
         </html>
     );

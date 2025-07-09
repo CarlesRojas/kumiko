@@ -1,6 +1,7 @@
 import { DEFAULT_LANGUAGE, Language } from "@/locale/language";
 import type { getUser } from "@/server/repo/auth";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import type { ReactNode } from "react";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -21,6 +22,6 @@ export type Context = {
     language: Awaited<Language>;
 };
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
+export const Providers = ({ children }: { children: ReactNode }) => {
     return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };

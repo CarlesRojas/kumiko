@@ -41,7 +41,7 @@ const Header = ({ user, language, queryClient }: Props) => {
     };
 
     return (
-        <header className="sticky top-0 left-0 z-30 flex h-16 max-h-16 min-h-16 w-full items-center justify-between bg-gradient-to-b from-neutral-950/75 to-neutral-950/0 px-4 backdrop-blur-sm">
+        <header className="relative z-30 flex h-16 max-h-16 min-h-16 w-full items-center justify-between bg-gradient-to-b from-neutral-950/75 to-neutral-950/0 px-4 backdrop-blur-sm">
             <Link to="/$language" params={{ language }} className="group flex cursor-pointer items-center gap-4">
                 <img
                     src="/favicon_512.png"

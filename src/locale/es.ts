@@ -50,6 +50,14 @@ export const es: LanguageObject = {
         },
     },
 
+    sidebar: {
+        modeTool: {
+            title: "Modo",
+            pattern: "Patrón",
+            wood: "Madera",
+        },
+    },
+
     footer: {
         privacyPolicy: "Política de privacidad",
         termsAndConditions: "Términos y condiciones",

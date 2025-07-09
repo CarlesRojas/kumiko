@@ -3,7 +3,7 @@
 import { cn } from "@/lib/cn";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
-import type { ComponentProps } from "react";
+import type { ComponentProps, HTMLAttributes } from "react";
 
 export const DropdownMenu = DropdownMenuPrimitive.Root;
 
@@ -153,6 +153,6 @@ export const DropdownMenuSeparator = ({
     <DropdownMenuPrimitive.Separator ref={ref} className={cn("bg-wood-950 -mx-1 my-2 h-px", className)} {...props} />
 );
 
-export const DropdownMenuShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
+export const DropdownMenuShortcut = ({ className, ...props }: HTMLAttributes<HTMLSpanElement>) => {
     return <span className={cn("ml-auto text-sm font-medium tracking-widest opacity-60", className)} {...props} />;
 };

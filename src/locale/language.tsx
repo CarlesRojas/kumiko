@@ -59,6 +59,14 @@ export const LanguageObjectSchema = z.object({
         }),
     }),
 
+    sidebar: z.object({
+        modeTool: z.object({
+            title: z.string(),
+            pattern: z.string(),
+            wood: z.string(),
+        }),
+    }),
+
     footer: z.object({
         privacyPolicy: z.string(),
         termsAndConditions: z.string(),

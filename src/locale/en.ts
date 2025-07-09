@@ -50,6 +50,14 @@ export const en: LanguageObject = {
         },
     },
 
+    sidebar: {
+        modeTool: {
+            title: "Mode",
+            pattern: "Pattern",
+            wood: "Wood",
+        },
+    },
+
     footer: {
         privacyPolicy: "Privacy Policy",
         termsAndConditions: "Terms and Conditions",
